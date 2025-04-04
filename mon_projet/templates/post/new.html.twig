@@ -1,0 +1,33 @@
+{# templates/post/new.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un nouveau post{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau post</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.titre) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.image) }}
+        {{ form_row(form.new_image) }}
+        <button type="submit">Créer le post</button>
+    {{ form_end(form) }}
+
+    <h2>Posts créés</h2>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <strong>{{ post.titre }}</strong><br>
+                {{ post.description }}<br>
+                {% if post.image %}
+                    <img src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.image }}" width="100">
+                {% endif %}
+            </li>
+        {% else %}
+            <p>Aucun post n'a été créé pour le moment.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
