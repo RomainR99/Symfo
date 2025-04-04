@@ -2,16 +2,48 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Mon Projet Symfony{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
     </head>
+
     <body>
+
+         {# Header commun à toutes les pages #}
+    <header>
+        <img src="{{ asset('images/Logo2.png') }}" alt="Logo" width="300" id="logo"></img>
+        
+    </header>
+
+        <div class="rectangle-sous-header"></div>
+
+
+    {# Nav commun à toutes les pages #}
+    <nav class="navbar-vertical">
+            <a class="navbar-brand" href="{{ path('post_new') }}">Créer un post</a>
+            <a class="navbar-brand" href="{{ path('posts_list') }}">Liste des posts</a>
+            <a class="navbar-brand" href="{{ path('posts_list') }}">Accueil</a>
+            <a class="navbar-brand" href="{{ path('posts_list') }}">Compte</a>
+            <a class="navbar-brand" href="{{ path('posts_list') }}">Recherche</a>
+            <a class="navbar-brand" href="{{ path('posts_list') }}">Favoris</a>
+            <a class="navbar-brand" href="{{ path('posts_list') }}">Notification</a>
+       
+    </nav>
+
+    {# Le contenu spécifique à chaque page sera rendu ici #}
+
+   <main class="mangas-container">
         {% block body %}{% endblock %}
+    </main>
+
+    {# Footer #}
+    <footer class="footer">
+        <p>&copy; 2025 Mon Projet Symfony</p>
+    </footer>
+
+     
+
     </body>
 </html>
