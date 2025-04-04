@@ -2,10 +2,10 @@
 
 {% extends 'base.html.twig' %}
 
-{% block title %}Créer un nouveau post{% endblock %}
+{% block title %}<h1 style="margin-top: 100px;">Créer un nouveau post</h1>{% endblock %}
 
 {% block body %}
-    <h1>Créer un nouveau post</h1>
+    <h1 style="margin-top: 100px;">Créer un post</h1>
 
     {{ form_start(form) }}
         {{ form_row(form.titre) }}
@@ -16,18 +16,23 @@
     {{ form_end(form) }}
 
     <h2>Posts créés</h2>
-    <ul>
-        {% for post in posts %}
-            <li>
-                <strong>{{ post.titre }}</strong><br>
-                {{ post.description }}<br>
+    <ul class="post-list">
+    {% for post in posts %}
+        <li class="post-item">
+            <div class="post-image-container">
                 {% if post.image %}
-                    <img src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.image }}" width="100">
+                    <img src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.image }}">
                 {% endif %}
-            </li>
-        {% else %}
-            <p>Aucun post n'a été créé pour le moment.</p>
-        {% endfor %}
-    </ul>
+                <div class="post-overlay">
+                    <h3>{{ post.titre }}</h3>
+                    <p>{{ post.description }}</p>
+                </div>
+            </div>
+        </li>
+    {% else %}
+        <p>Aucun post n'a été créé pour le moment.</p>
+    {% endfor %}
+</ul>
+
 {% endblock %}
 
