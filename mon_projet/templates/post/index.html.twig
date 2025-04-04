@@ -7,15 +7,17 @@
 {% block body %}
 <h1>Liste des posts</h1>
 
-<ul>
+<div class="mangas-container">
     {% for post in posts %}
-        <div class="project">
+        <div class="manga-card">
+            <img src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.titre }}">
             <h3>{{ post.titre }}</h3>
             <p>{{ post.description }}</p>
-            <img src="{{ asset('uploads/images/' ~ post.image) }}" alt="Image du post" width="200">
         </div>
     {% endfor %}
-</ul>
+</div>
+
+
 
 <a href="{{ path('post_new') }}" >Nouveau post</a>
 

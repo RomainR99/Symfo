@@ -17,22 +17,16 @@
 
     <h2>Posts créés</h2>
     <ul class="post-list">
+    <div class="mangas-container">
     {% for post in posts %}
-        <li class="post-item">
-            <div class="post-image-container">
-                {% if post.image %}
-                    <img src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.image }}">
-                {% endif %}
-                <div class="post-overlay">
-                    <h3>{{ post.titre }}</h3>
-                    <p>{{ post.description }}</p>
-                </div>
-            </div>
-        </li>
-    {% else %}
-        <p>Aucun post n'a été créé pour le moment.</p>
+        <div class="manga-card">
+            <img src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.titre }}">
+            <h3>{{ post.titre }}</h3>
+            <p>{{ post.description }}</p>
+        </div>
     {% endfor %}
-</ul>
+    </div>
+
 
 {% endblock %}
 
