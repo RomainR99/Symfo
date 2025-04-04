@@ -36,7 +36,7 @@ class PostType extends AbstractType
             ->add('new_image', FileType::class, [
                 'label' => 'Télécharger une nouvelle image',
                 'required' => false,
-                'mapped' => false,    // Ce champ n'est pas mappé à une propriété de l'entité
+                'mapped' => false,    
             ]);
     }
 
