@@ -14,9 +14,9 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
-    // Ajoute ici tes méthodes personnalisées si nécessaire
-    // Par exemple : obtenir les posts récents
-    public function findRecentPosts($limit = 5)
+    
+    // obtenir les posts récents
+    public function findRecentPosts($limit = 50)
     {
         return $this->createQueryBuilder('p')
             ->orderBy('p.id', 'DESC')
